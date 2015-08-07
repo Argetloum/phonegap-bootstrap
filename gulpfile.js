@@ -14,12 +14,15 @@ var paths = {
     indexFile: 'app/index.html',
     langs: {
         script: 'lang.py',
+        csv: 'lang.csv',
+        js: 'app/modules/common/js/'
+        /*script: 'lang.py',
         main: {
             langFileId: '1p79BGz9dtJlX4qcfc2irrwSIN6RakdCzoYON2UFKm4U',
             csv: 'lang.csv',
             js: 'lang.js',
             jsPath: 'app/modules/common/js/'
-        }
+        }*/
     },
     scss: [
         'app/scss/**/*.scss'
@@ -74,6 +77,15 @@ var paths = {
  });
  request(url).pipe(stream);
  });*/
+gulp.task('lang', function()
+{
+    return gulp.src(paths.langs.csv)
+        .pipe(plugins.plumber())
+        .pipe(plugins.shell([
+            'python ' + paths.langs.script + ' ' + paths.langs.csv,
+            'mv lang.js ' + paths.langs.js
+        ]));
+});
 
 
 //
@@ -284,5 +296,5 @@ gulp.task('reload', function()
 });
 
 
-gulp.task('build-debug', ['build-libs-debug', 'build-scripts-debug', 'css', 'template-cache', 'images:copy', 'files:copy', 'main-files:copy']);
+gulp.task('build-debug', ['lang', 'build-libs-debug', 'build-scripts-debug', 'css', 'template-cache', 'images:copy', 'files:copy', 'main-files:copy']);
 gulp.task('default', ['watch', 'auto-reload', 'serve', 'reload']);

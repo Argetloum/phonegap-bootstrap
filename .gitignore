@@ -41,6 +41,7 @@ $RECYCLE.BIN/
 /app/libs/bower/*
 /platforms/
 /plugins/
+*lang.js
 
 #coverage
 cover/
