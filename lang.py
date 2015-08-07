@@ -41,25 +41,29 @@ with open(FILE, 'rb') as csvfile:
 # Write client file
 CLIENT = open(CLIENT_LANG, 'w')
 
-CLIENT.write("angular.module(APPLICATION_NAME).config(['$translateProvider', function($translateProvider)\n")
-CLIENT.write("{\n")
+CLIENT.write("(function()\n{\n")
+CLIENT.write("    /* global angular */\n    'use strict'; // jshint ignore:line\n\n")
+CLIENT.write("    angular.module(APPLICATION_NAME)\n")
+CLIENT.write("        .config(['$translateProvider', function($translateProvider)\n")
+CLIENT.write("        {\n")
 
 for lang in LANG_DICT:
-    CLIENT.write("    $translateProvider.translations('" + lang['code'] + "',\n")
-    CLIENT.write("        {\n")
+    CLIENT.write("            $translateProvider.translations('" + lang['code'] + "',\n")
+    CLIENT.write("                {\n")
 
     for index, entry in enumerate(lang['values']):
-        CLIENT.write('            "' + entry['key'] + '": "' +
+        CLIENT.write('                    "' + entry['key'] + '": "' +
                      entry['value'].replace('"', '\\"').replace('\n', '\\n" +\n                ' + (' ' * len(entry['key'])) + '"') + '"')
 
         if index < len(lang['values'])-1:
             CLIENT.write(",\n")
 
-    CLIENT.write("\n        });\n\n")
+    CLIENT.write("\n                });\n\n")
 
-CLIENT.write("    $translateProvider.preferredLanguage((navigator.language !== null ? navigator.language : " +
+CLIENT.write("            $translateProvider.preferredLanguage((navigator.language !== null ? navigator.language : " +
              "navigator.browserLanguage).split(\"_\")[0].split(\"-\")[0]);\n")
-CLIENT.write("    $translateProvider.fallbackLanguage('en');\n")
-CLIENT.write("}]);")
+CLIENT.write("            $translateProvider.fallbackLanguage('en');\n")
+CLIENT.write("        }]);\n")
+CLIENT.write("})();")
 
 CLIENT.close()
