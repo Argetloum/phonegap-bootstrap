@@ -28,7 +28,8 @@ var paths = {
         'app/scss/**/*.scss'
     ],
     css: [
-        tmp + '/style.css'
+        tmp + '/style.css',
+        bower + '/angular-snap/angular-snap-only.css'
     ],
     html: [
         'app/modules/**/*.html'
@@ -38,11 +39,13 @@ var paths = {
     ],
     libsScripts: [
         bower + '/underscore/underscore.js',
+        bower + '/snapjs/snap.js',
         bower + '/angular/angular.js',
         bower + '/angular-resource/angular-resource.js',
         bower + '/ngstorage/ngStorage.js',
         bower + '/angular-sanitize/angular-sanitize.js',
         bower + '/angular-ui-router/release/angular-ui-router.js',
+        bower + '/angular-snap/angular-snap.js',
         vendors + '/angular-translate.min.js',
         vendors + '/translation_service.js',
         bower + '/lumx/dist/lumx.js',

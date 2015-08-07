@@ -26,7 +26,8 @@ var APPLICATION_NAME = 'mobile-app';
             'Factories',
             'Filters',
             'Services',
-            'ModulesTemplates'
+            'ModulesTemplates',
+            'snap'
         ])
 
         .config(function($locationProvider, $stateProvider, $urlRouterProvider)
@@ -65,11 +66,13 @@ var APPLICATION_NAME = 'mobile-app';
             $urlRouterProvider.otherwise('/app/home');
 
         })
-        .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService', 'AppService',
-            function($rootScope, $timeout, Translation, GlobalizationService, AppService)
+        .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService', 'AppService', 'snapRemote',
+            function($rootScope, $timeout, Translation, GlobalizationService, AppService, snapRemote)
             {
                 $rootScope.Translation = Translation;
                 $rootScope.AppService = AppService;
+
+                snapRemote.globalOptions.disable = 'right';
 
                 document.addEventListener('deviceready', function()
                 {
