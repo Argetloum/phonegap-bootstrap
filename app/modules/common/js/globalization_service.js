@@ -1,14 +1,34 @@
-/* global angular */
-/* global navigator */
-'use strict'; // jshint ignore:line
+(function()
+{
+    /* global angular */
+    /* global navigator */
+    'use strict'; // jshint ignore:line
 
-angular.module('Services')
-    .service('GlobalizationService', ['Utils', 'Translation', function(Utils, Translation)
+    angular
+        .module('Services')
+        .service('GlobalizationService', GlobalizationService);
+
+    GlobalizationService.$inject = ['Utils', 'Translation'];
+
+    function GlobalizationService(Utils, Translation)
     {
-
+        //
+        // Private members
+        //
+        var _service = this;
         var preferredLanguage = 'en';
 
-        function init()
+        //
+        // Public members
+        //
+        _service.init = _init;
+        _service.getPreferredLang = _getPreferredLang;
+
+
+        //
+        // PRIVATE METHODS
+        //
+        function _init()
         {
             Utils.log('Init Globalization service...');
             navigator.globalization.getPreferredLanguage(
@@ -35,13 +55,14 @@ angular.module('Services')
         }
 
 
-        function getPreferredLang()
+        function _getPreferredLang()
         {
             return preferredLanguage;
         }
 
-        return {
-            init: init,
-            getPreferredLang: getPreferredLang
-        };
-    }]);
+        //
+        // PUBLIC API
+        //
+        return _service;
+    }
+})();

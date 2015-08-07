@@ -1,21 +1,41 @@
-/* global Date */
-/* global Math */
-/* global $ */
-/* global angular */
-/* global jQuery */
-'use strict'; // jshint ignore:line
+(function()
+{
+    /* global angular */
+    /* global Math */
+    'use strict'; // jshint ignore:line
 
-angular.module('Services')
-    .service('Utils', function ()
+    angular
+        .module('Services')
+        .service('Utils', Utils);
+
+    function Utils()
     {
         //
-        // PUBLIC METHODS
+        // Private members
         //
+        var _service = this;
 
-        function generateUUID()
+        //
+        // Public members
+        //
+        _service.copyObjectToExistingOne = _copyObjectToExistingOne;
+        _service.generateUUID = _generateUUID;
+        _service.generatePassword = _generatePassword;
+        _service.slugify = _slugify;
+        _service.arrayUnique = _arrayUnique;
+        _service.isLangArrayEmpty = _isLangArrayEmpty;
+        _service.log = _log;
+        _service.createExcerpt = _createExcerpt;
+        _service.bytesToSize = _bytesToSize;
+
+
+        //
+        // PRIVATE METHODS
+        //
+        function _generateUUID()
         {
             var d = new Date().getTime();
-            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c)
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c)
             {
                 var r = (d + Math.random() * 16) % 16 | 0;
                 d = Math.floor(d / 16);
@@ -31,11 +51,11 @@ angular.module('Services')
          * @param {Object} to - The destination object
          * @param {Boolean} setDefaultValue - Add a verification
          */
-        function copyObjectToExistingOne(from, to, setDefaultValue)
+        function _copyObjectToExistingOne(from, to, setDefaultValue)
         {
             $.each(to, function(key)
             {
-                if(angular.isUndefined(setDefaultValue))
+                if (angular.isUndefined(setDefaultValue))
                 {
                     to[key] = undefined;
                 }
@@ -67,7 +87,7 @@ angular.module('Services')
          * Generate an easy random password
          * @param length the wanted length of the password
          */
-        function generatePassword(length)
+        function _generatePassword(length)
         {
             length = length || 8;
             var char = "abcdefghijklmnopqrstuvwxyz";
@@ -77,7 +97,7 @@ angular.module('Services')
 
             for (var idx = 0; idx < length; idx++)
             {
-                password += authorizedChar.charAt(Math.floor(Math.random()*authorizedChar.length));
+                password += authorizedChar.charAt(Math.floor(Math.random() * authorizedChar.length));
             }
 
             return password;
@@ -89,7 +109,7 @@ angular.module('Services')
          * @returns {String}
          * @see original script available at http://goo.gl/48zuCd
          */
-        function slugify(value)
+        function _slugify(value)
         {
             if (!value)
             {
@@ -129,7 +149,7 @@ angular.module('Services')
          * @param {String} param - The param is not necessary, it specifies if we want to sort by a specific param or not
          * @returns {Array}
          */
-        function arrayUnique(array, param)
+        function _arrayUnique(array, param)
         {
             var a = array.concat();
 
@@ -160,7 +180,7 @@ angular.module('Services')
         /**
          * Mobile log
          */
-        function log(text)
+        function _log(text)
         {
             console.log(JSON.stringify(text));
         }
@@ -170,7 +190,7 @@ angular.module('Services')
          * @param {Array|Object} langArray - The lang array
          * @returns {Boolean}
          */
-        function isLangArrayEmpty(langArray)
+        function _isLangArrayEmpty(langArray)
         {
             for (var lang in langArray)
             {
@@ -189,7 +209,7 @@ angular.module('Services')
          * @param {Object} str - the string to shorten
          * @param {Object} limit - the limit of characters
          */
-        function createExcerpt(str, limit)
+        function _createExcerpt(str, limit)
         {
             str = String(str).replace(/<[^>]+>/gm, '');
             str = str.substr(0, str.lastIndexOf(' ', limit)) + '...';
@@ -202,7 +222,7 @@ angular.module('Services')
          * @param bytes
          * @returns {string}
          */
-        function bytesToSize(bytes)
+        function _bytesToSize(bytes)
         {
             if (bytes == 0) return '0 Byte';
             var k = 1000;
@@ -211,15 +231,9 @@ angular.module('Services')
             return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
         }
 
-        return {
-            copyObjectToExistingOne: copyObjectToExistingOne,
-            generateUUID: generateUUID,
-            generatePassword: generatePassword,
-            slugify: slugify,
-            arrayUnique: arrayUnique,
-            isLangArrayEmpty: isLangArrayEmpty,
-            log: log,
-            createExcerpt: createExcerpt,
-            bytesToSize: bytesToSize
-        };
-    });
+        //
+        // PUBLIC API
+        //
+        return _service;
+    }
+})();

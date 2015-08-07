@@ -1,15 +1,39 @@
-'use strict'; // jshint ignore:line
+(function()
+{
+    /* global angular */
+    'use strict'; // jshint ignore:line
 
-angular.module('Services')
-    .service('LocalStorageService', ['$localStorage', function($localStorage)
+    angular
+        .module('Services')
+        .service('LocalStorageService', LocalStorageService);
+
+    LocalStorageService.$inject = ['$localStorage'];
+
+    function LocalStorageService($localStorage)
     {
+        //
+        // Private members
+        //
+        var _service = this;
 
+        //
+        // Public members
+        //
+        _service.setData = _setData;
+        _service.getData = _getData;
+        _service.getKey = _getKey;
+        _service.reset = _reset;
+
+
+        //
+        // PRIVATE METHODS
+        //
         /**
          * Set data in the local storage
          * @param key String
          * @param data array
          */
-        function setData(key, data)
+        function _setData(key, data)
         {
             $localStorage[key] = data;
         }
@@ -19,7 +43,7 @@ angular.module('Services')
          * @param key String
          * @returns {*}
          */
-        function getData(key)
+        function _getData(key)
         {
             if (angular.isDefined($localStorage[key]))
             {
@@ -32,7 +56,7 @@ angular.module('Services')
          * @param key String
          * @returns {*}
          */
-        function getKey(key)
+        function _getKey(key)
         {
             return angular.isDefined($localStorage[key]);
         }
@@ -40,16 +64,14 @@ angular.module('Services')
         /**
          * Reset localStorage
          */
-        function reset()
+        function _reset()
         {
             $localStorage.$reset();
         }
 
-
-        return {
-            setData: setData,
-            getData: getData,
-            getKey: getKey,
-            reset: reset
-        };
-    }]);
+        //
+        // PUBLIC API
+        //
+        return _service;
+    }
+})();
