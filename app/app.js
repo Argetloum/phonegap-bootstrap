@@ -40,14 +40,10 @@ var APPLICATION_NAME = 'mobile-app';
                 // setup an abstract state for the tabs directive
                 .state('app', {
                     url: '/app',
-                    abstract: true,
-                    templateUrl: 'modules/common/views/default.html'
-                })
-
-                // Each tab has its own nav history stack:
-                .state('app.home', {
-                    url: '/home',
-                    views: {
+                    views:{
+                        'sidebar': {
+                            templateUrl: 'modules/layout/sidebar/views/sidebar.html'
+                        },
                         'content': {
                             templateUrl: 'modules/home/views/home.html',
                             controller: 'HomeCtrl'
@@ -56,7 +52,7 @@ var APPLICATION_NAME = 'mobile-app';
                 });
 
             // if none of the above states are matched, use this as the fallback
-            $urlRouterProvider.otherwise('/app/home');
+            $urlRouterProvider.otherwise('/app');
 
         })
         .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService',
