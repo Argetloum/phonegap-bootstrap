@@ -1,6 +1,7 @@
 (function()
 {
-    'use strict';
+    /* global angular */
+    'use strict'; // jshint ignore:line
 
     angular
         .module('Controllers')
