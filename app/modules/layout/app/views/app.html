@@ -1,0 +1,18 @@
+<div id="app">
+    <div id="topbar" class="p">
+        <div flex-container="row" flex-gutter="12" class="topbar">
+            <div flex-item="1" class="topbar__btn">
+                <button class="btn btn--m btn--white btn--icon bar__picto-menu" lx-ripple>
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </div>
+            <div flex-item="9" class="topbar__title">
+                {{ AppService.getTopBarTitle() }}
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div ui-view="content"></div>
+    </div>
+</div>

@@ -215,6 +215,16 @@ gulp.task('files:copy', function()
 
 
 //
+// MDI FONTS
+//
+gulp.task('mdi-fonts:copy', function()
+{
+    return gulp.src('app/libs/bower/mdi/fonts/**')
+        .pipe(gulp.dest('www/fonts'));
+});
+
+
+//
 // MAIN FILES
 //
 gulp.task('main-files:copy', function()
@@ -287,5 +297,5 @@ gulp.task('reload', function()
 });
 
 
-gulp.task('build-debug', ['lang', 'build-libs-debug', 'build-scripts-debug', 'css', 'template-cache', 'files:copy', 'main-files:copy']);
+gulp.task('build-debug', ['lang', 'build-libs-debug', 'build-scripts-debug', 'css', 'template-cache', 'files:copy', 'main-files:copy', 'mdi-fonts:copy']);
 gulp.task('default', ['watch', 'auto-reload', 'serve', 'reload']);

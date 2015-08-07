@@ -44,6 +44,16 @@ var APPLICATION_NAME = 'mobile-app';
                         'sidebar': {
                             templateUrl: 'modules/layout/sidebar/views/sidebar.html'
                         },
+                        'app': {
+                            templateUrl: 'modules/layout/app/views/app.html'
+                        }
+                    }
+                })
+
+                // Each tab has its own nav history stack:
+                .state('app.home', {
+                    url: '/home',
+                    views: {
                         'content': {
                             templateUrl: 'modules/home/views/home.html',
                             controller: 'HomeCtrl'
@@ -52,13 +62,14 @@ var APPLICATION_NAME = 'mobile-app';
                 });
 
             // if none of the above states are matched, use this as the fallback
-            $urlRouterProvider.otherwise('/app');
+            $urlRouterProvider.otherwise('/app/home');
 
         })
-        .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService',
-            function($rootScope, $timeout, Translation, GlobalizationService)
+        .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService', 'AppService',
+            function($rootScope, $timeout, Translation, GlobalizationService, AppService)
             {
                 $rootScope.Translation = Translation;
+                $rootScope.AppService = AppService;
 
                 document.addEventListener('deviceready', function()
                 {

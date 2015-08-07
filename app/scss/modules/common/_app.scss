@@ -1,3 +1,26 @@
 ///*------------------------------------*\
 //    #APP
 //\*------------------------------------*/
+
+$topbar-base-color: #4285f4;
+
+
+#topbar {
+    background: $topbar-base-color;
+    color: #ffffff;
+
+    .topbar {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        .topbar__btn{
+            font-weight: bold;
+        }
+
+        .topbar__title{
+            font-weight: bold;
+        }
+    }
+}

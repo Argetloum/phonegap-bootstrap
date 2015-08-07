@@ -21,6 +21,7 @@
         // Public members
         //
         _service.getLocale = _getLocale;
+        _service.appName = 'Mobile App';
 
 
         //
