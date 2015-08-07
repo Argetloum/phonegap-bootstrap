@@ -48,7 +48,6 @@ var paths = {
         bower + '/velocity/velocity.js'
     ],
     mainFiles: ['app/app.js', 'app/index.html'],
-    images: 'app/img/**/*',
     files: 'app/res/**/*'
 };
 
@@ -203,16 +202,6 @@ gulp.task('template-cache', function()
 
 
 //
-// IMAGES
-//
-gulp.task('images:copy', function()
-{
-    gulp.src(paths.images)
-        .pipe(gulp.dest(build + '/img'));
-});
-
-
-//
 // FILES
 //
 gulp.task('files:copy', function()
@@ -247,7 +236,6 @@ gulp.task('watch', ['build-debug'], function()
     watcherWithCache('build-scripts-debug', paths.scripts, ['build-scripts-debug']);
     watcherWithCache('css', paths.scss.concat(paths.css).concat('!' + tmp + '/style.css'), ['css']);
     watcherWithCache('template-cache', ['app/modules/**/*.html'], ['template-cache']);
-    watcherWithCache('img', paths.images, ['images:copy']);
     watcherWithCache('files', paths.files, ['files:copy']);
     watcherWithCache('mainFiles', paths.mainFiles, ['main-files:copy']);
 });
@@ -296,5 +284,5 @@ gulp.task('reload', function()
 });
 
 
-gulp.task('build-debug', ['lang', 'build-libs-debug', 'build-scripts-debug', 'css', 'template-cache', 'images:copy', 'files:copy', 'main-files:copy']);
+gulp.task('build-debug', ['lang', 'build-libs-debug', 'build-scripts-debug', 'css', 'template-cache', 'files:copy', 'main-files:copy']);
 gulp.task('default', ['watch', 'auto-reload', 'serve', 'reload']);
