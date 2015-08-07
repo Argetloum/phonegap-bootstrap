@@ -1,0 +1,9 @@
+///*------------------------------------*\
+//    #LINKS
+//\*------------------------------------*/
+
+// Cursor pointer on angular links
+*[ng-click],
+*[ui-sref] {
+    cursor: pointer;
+}

@@ -1,0 +1,24 @@
+///*------------------------------------*\
+//    #LAYOUT
+//\*------------------------------------*/
+
+// Html
+html {
+    height: 100%;
+}
+
+
+
+
+
+// Body
+body {
+    @include display(flex);
+    @include flex-direction(column);
+    min-height: 100%;
+    font-family: $base-font-family;
+
+    @include media-query(palm) {
+        padding-top: 60px;
+    }
+}

@@ -2,6 +2,7 @@
   "name": "MobileApp",
   "version": "1.0.0",
   "dependencies": {
+    "lumx": "latest",
     "angular": "~1.4.3",
     "angular-resource": "~1.4.3",
     "angular-sanitize": "~1.4.3",

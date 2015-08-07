@@ -45,6 +45,7 @@ var paths = {
         bower + '/angular-ui-router/release/angular-ui-router.js',
         vendors + '/angular-translate.min.js',
         vendors + '/translation_service.js',
+        bower + '/lumx/dist/lumx.js',
         bower + '/velocity/velocity.js'
     ],
     mainFiles: ['app/app.js', 'app/index.html'],
@@ -155,10 +156,12 @@ gulp.task('scss', ['clean:tmp'], function()
         .pipe(plugins.sass(
             {
                 includePaths: [
-                    'app/',
-                    'app/modules/common/scss/',
+                    'app/libs/bower/bourbon/app/assets/stylesheets/',
+                    'app/libs/bower/mdi/scss/',
+                    'app/libs/bower/mdi/scss/',
                     'app/libs/bower/lumx/dist/scss/',
-                    'app/libs/bower/bourbon/app/assets/stylesheets/']
+                    'app/scss/'
+                ]
             }).on('error', plugins.sass.logError))
         .pipe(gulp.dest(tmp));
 });

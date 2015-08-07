@@ -1,0 +1,26 @@
+///*------------------------------------*\
+//    #HELPERS
+//\*------------------------------------*/
+
+// Text ellipsis
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+// Separator
+.separator {
+    &:last-child:after {
+        display: none;
+    }
+}
+
+.separator--dash {
+    &:after {
+        content: '-';
+    }
+}
