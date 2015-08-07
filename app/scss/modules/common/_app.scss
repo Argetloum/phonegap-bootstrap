@@ -4,28 +4,45 @@
 
 $topbar-base-color: #4285f4;
 
-
 #topbar {
     background: $topbar-base-color;
+    -webkit-transition: background .15s;
+    transition: background .15s;
     color: #ffffff;
 
     .topbar {
+        padding: 10px;
         display: flex;
         align-items: center;
         flex-direction: row;
         flex-wrap: nowrap;
 
-        .topbar__btn{
+        .topbar__btn {
+            @include flex(0 0 16%);
             font-weight: bold;
         }
 
-        .topbar__title{
+        .topbar__title {
+            @include flex(1);
+            font-size: 20px;
             font-weight: bold;
         }
     }
+
+    &:before {
+        box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+        content: "";
+        height: 60px;
+        left: -2%;
+        position: fixed;
+        width: 104%;
+    }
+
+    &:after {
+        display: none;
+    }
 }
 
-
-#content{
+#content {
 
 }
