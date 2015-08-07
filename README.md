@@ -16,7 +16,8 @@ The default gulp task launch the desktop server, build the `www/` folder and wat
 Just go to `http://localhost:8100` to see the app running.
 
 Then, to give a try of the mobile app in android for exemple:
-- Open a new CLI, and build the android platform using `phonegap build android`.
+- Open a new CLI, and add the needed plugins with `bash plugins.sh`
+- Build the android platform using `phonegap build android`.
 - Run `phonegap serve` to launch the remote server.
 - Launch the Phonegap application previously installed in your mobile.
 - Connect to your remote server on the url provided when you launched `phonegap serve`.
