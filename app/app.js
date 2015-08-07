@@ -58,15 +58,15 @@ angular.module(APPLICATION_NAME,
         $urlRouterProvider.otherwise('/app/home');
 
     })
-    .run(['$rootScope', '$timeout', 'Translation',
-        function($rootScope, $timeout, Translation)
+    .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService',
+        function($rootScope, $timeout, Translation, GlobalizationService)
         {
             $rootScope.Translation = Translation;
 
             document.addEventListener('deviceready', function()
             {
-                // Device is ready
-                //alert('rootscope ready')
+                // Get the device language & set it to the translation service
+                GlobalizationService.init();
             }, true);
         }
     ]);
