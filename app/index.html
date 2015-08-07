@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="mobile-app">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+
+    <link rel='stylesheet' href="css/style.min.css">
+
+    <title>Mobile App</title>
+</head>
+<body>
+
+<div ui-view></div>
+
+<!-- LIBS -->
+<script src="js/libs_debug.js"></script>
+<!-- APP -->
+<script src="app.js"></script>
+<!-- TEMPLATES -->
+<script src="js/templates_modules.js"></script>
+<!-- SCRIPTS -->
+<script src="js/scripts_debug.js"></script>
+
+<!--
+  Cordova script (this will be a 404 during development)
+  /!\ Must be the last file included !
+-->
+<script src="cordova.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+# Workspace files are user-specific
+*.sublime-workspace
+/nbproject/private/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Various temp files
+.tmp
+.sass-cache
+.idea
+.ropeproject
+*.*~*
+
+# MacOS Files
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# Thumbnails
+._*
+
+*.pyc
+*datastore*
+*blobstore*
+*.search_index*
+
+#libs and builded files
+/.build-tmp/
+/node_modules/*
+/www/
+/app/libs/bower/*
+/platforms/
+
+#coverage
+cover/
+.coverage
