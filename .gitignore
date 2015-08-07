@@ -40,6 +40,7 @@ $RECYCLE.BIN/
 /www/
 /app/libs/bower/*
 /platforms/
+/plugins/
 
 #coverage
 cover/
