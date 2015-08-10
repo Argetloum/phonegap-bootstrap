@@ -5,6 +5,8 @@
 $topbar-base-color: #4285f4;
 
 #topbar {
+    position: fixed;
+    width: 100%;
     background: $topbar-base-color;
     -webkit-transition: background .15s;
     transition: background .15s;
@@ -41,4 +43,8 @@ $topbar-base-color: #4285f4;
     &:after {
         display: none;
     }
+}
+
+#content{
+    padding: 60px 0 0 0;
 }
