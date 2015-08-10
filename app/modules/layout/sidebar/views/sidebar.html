@@ -20,6 +20,7 @@
         <div class="sidebar-content--menu">
             <ul class="sidebar-content--menu__root">
                 <li class="sidebar-content--menu__item list-row"
+                    ng-click="vm.handleSidebarLink()"
                     ui-sref="app.home"
                     ui-sref-active="sidebar-content--menu__item--is-active">
                     <div class="list-row__primary">
@@ -31,7 +32,8 @@
                 </li>
 
                 <li class="sidebar-content--menu__item list-row"
-                    ui-sref="app.news"
+                    ng-click="vm.handleSidebarLink()"
+                    ui-sref="app.content-list"
                     ui-sref-active="sidebar-content--menu__item--is-active">
                     <div class="list-row__primary">
                         <i class="icon icon--m mdi mdi-newspaper"></i>

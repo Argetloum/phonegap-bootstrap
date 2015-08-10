@@ -11,10 +11,11 @@
     "ngstorage": "~0.3.0",
     "underscore": "~1.8.3",
     "velocity": "latest",
-    "angular-touch": "~1.4.3"
+    "angular-touch": "~1.4.3",
+    "angular-ui-sref-fastclick": "~0.0.1"
   },
   "private": true,
   "resolutions": {
-    "angular": "1.4.3"
+    "angular": "~1.4.3"
   }
 }

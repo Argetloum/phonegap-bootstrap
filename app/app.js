@@ -27,7 +27,8 @@ var APPLICATION_NAME = 'mobile-app';
             'Filters',
             'Services',
             'ModulesTemplates',
-            'ngTouch'
+            'ngTouch',
+            'hj.uiSrefFastclick'
         ])
 
         .config(function($locationProvider, $stateProvider, $urlRouterProvider)
@@ -43,6 +44,8 @@ var APPLICATION_NAME = 'mobile-app';
                     url: '/app',
                     views: {
                         'sidebar': {
+                            controller: 'SidebarController',
+                            controllerAs: 'vm',
                             templateUrl: 'modules/layout/sidebar/views/sidebar.html'
                         },
                         'app': {
@@ -57,7 +60,18 @@ var APPLICATION_NAME = 'mobile-app';
                     views: {
                         'content': {
                             templateUrl: 'modules/home/views/home.html',
-                            controller: 'HomeCtrl'
+                            controller: 'HomeController',
+                            controllerAs: 'vm'
+                        }
+                    }
+                })
+                .state('app.content-list', {
+                    url: '/content-list',
+                    views: {
+                        'content': {
+                            templateUrl: 'modules/content-list/views/content-list.html',
+                            controller: 'ContentListController',
+                            controllerAs: 'vm'
                         }
                     }
                 });

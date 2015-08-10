@@ -5,12 +5,10 @@
 
     angular
         .module('Controllers')
-        .controller('HomeController', HomeController);
+        .controller('ContentListController', ContentListController);
 
-    function HomeController()
+    function ContentListController()
     {
         var vm = this;
-
-        vm.welcomeMessage = 'Hello World';
     }
 })();
