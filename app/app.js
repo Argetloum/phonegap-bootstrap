@@ -71,7 +71,6 @@ var APPLICATION_NAME = 'mobile-app';
             {
                 $rootScope.Translation = Translation;
                 $rootScope.AppService = AppService;
-                AppService.toggleSidebar();
 
                 document.addEventListener('deviceready', function()
                 {

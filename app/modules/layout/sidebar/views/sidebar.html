@@ -16,5 +16,31 @@
                 </span>
             </div>
         </div>
+
+        <div class="sidebar-content--menu">
+            <ul class="sidebar-content--menu__root">
+                <li class="sidebar-content--menu__item list-row"
+                    ui-sref="app.home"
+                    ui-sref-active="sidebar-content--menu__item--is-active">
+                    <div class="list-row__primary">
+                        <i class="icon icon--m mdi mdi-home"></i>
+                    </div>
+                    <div class="list-row__content">
+                        {{ Translation.translate('HOME') }}
+                    </div>
+                </li>
+
+                <li class="sidebar-content--menu__item list-row"
+                    ui-sref="app.news"
+                    ui-sref-active="sidebar-content--menu__item--is-active">
+                    <div class="list-row__primary">
+                        <i class="icon icon--m mdi mdi-newspaper"></i>
+                    </div>
+                    <div class="list-row__content">
+                        {{ Translation.translate('NEWS') }}
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

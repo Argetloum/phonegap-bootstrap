@@ -41,13 +41,13 @@
 .sidebar-content {
     .sidebar-content--header {
         background: url("../res/img/header/mobile-sidebar-header.jpg") repeat 0 0 #4fc1e9;
-        padding: 30px 20px 10px 20px;
+        padding: 20px 20px 10px 20px;
         color: white;
 
         .user-settings {
             .user-settings--avatar {
-                height: 50px;
-                width: 50px;
+                height: 64px;
+                width: 64px;
                 border-radius: 50%;
             }
             img {
@@ -64,6 +64,32 @@
                 display: block;
                 font-size: 14px;
                 color: #eee;
+            }
+        }
+    }
+
+    .sidebar-content--menu {
+        .sidebar-content--menu__root {
+            @include bare-list;
+            @include display(flex);
+            @include justify-content(space-between);
+            @include flex-direction(column);
+            margin-top: 10px;
+            list-style-type: none;
+            position: relative;
+
+            .sidebar-content--menu__item {
+                color: $black-2;
+                padding: 10px 20px;
+
+                &.sidebar-content--menu__item--is-active, &:hover {
+                    color: $blue-500;
+                    background: $grey-200;
+                }
+
+                .list-row__content {
+                    padding: 0;
+                }
             }
         }
     }
