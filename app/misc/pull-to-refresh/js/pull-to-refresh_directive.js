@@ -168,7 +168,6 @@
                         if (config.isTouched && change > 0)
                         {
                             _pullingStopped(change);
-                            e.preventDefault();
                         }
                     });
 
@@ -178,7 +177,6 @@
                         if (config.isTouched)
                         {
                             _pullingDown(change);
-                            e.preventDefault();
                         }
                     });
 
@@ -192,8 +190,6 @@
                             config.isTouched = true;
                             config.prevY = e.clientY;
                             element.css('transition', '');
-
-                            e.preventDefault();
                         }
                     });
 
@@ -204,7 +200,6 @@
                         {
                             var change = e.clientY - config.prevY;
                             _pullingStopped(change);
-                            e.preventDefault();
                         }
                     });
 
@@ -215,7 +210,6 @@
                             var change = e.clientY - config.prevY;
                             _pullingDown(change);
                         }
-                        e.preventDefault();
                     });
                 }
 
