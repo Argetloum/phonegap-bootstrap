@@ -7,8 +7,25 @@
         .module('Controllers')
         .controller('ContentListController', ContentListController);
 
-    function ContentListController()
+    ContentListController.$inject = ['AppService', 'Translation'];
+
+    function ContentListController(AppService, Translation)
     {
         var vm = this;
+
+
+        //
+        // PRIVATE METHODS
+        //
+        function _init()
+        {
+            AppService.setTopBarTitle(Translation.translate('NEWS'));
+        }
+
+
+        //
+        // INITIALIZATION
+        //
+        _init();
     }
 })();
