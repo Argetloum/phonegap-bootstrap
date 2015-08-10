@@ -18,7 +18,7 @@
                 // BASIC VARIABLES
                 //
                 var config = {
-                    distanceToRefresh: 70,
+                    distanceToRefresh: 100,
                     scrollElem: element[0],
                     wrapperOffsetY: 0,
                     isTouched: false, // keep the state whether the fingers are touched
