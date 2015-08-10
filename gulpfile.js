@@ -44,6 +44,7 @@ var paths = {
         bower + '/ngstorage/ngStorage.js',
         bower + '/angular-sanitize/angular-sanitize.js',
         bower + '/angular-ui-router/release/angular-ui-router.js',
+        bower + '/angular-touch/angular-touch.js',
         vendors + '/angular-translate.min.js',
         vendors + '/translation_service.js',
         bower + '/lumx/dist/lumx.js',

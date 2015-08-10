@@ -12,7 +12,7 @@
 
     <title>Mobile App</title>
 </head>
-<body>
+<body ng-swipe-left="AppService.toggleSidebar('left')" ng-swipe-right="AppService.toggleSidebar('right')">
 
 <div ui-view="sidebar"></div>
 

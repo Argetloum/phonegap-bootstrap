@@ -26,7 +26,8 @@ var APPLICATION_NAME = 'mobile-app';
             'Factories',
             'Filters',
             'Services',
-            'ModulesTemplates'
+            'ModulesTemplates',
+            'ngTouch'
         ])
 
         .config(function($locationProvider, $stateProvider, $urlRouterProvider)

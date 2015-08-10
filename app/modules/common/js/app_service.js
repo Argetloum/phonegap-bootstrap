@@ -59,10 +59,25 @@
 
         /**
          * Change sidebar state
+         * @param direction: optional - if a direction is specified, handle it
          */
-        function _toggleSidebar()
+        function _toggleSidebar(direction)
         {
-            sidebarIsShown = !sidebarIsShown;
+            if (angular.isDefined(direction))
+            {
+                if(sidebarIsShown && direction === 'left')
+                {
+                    sidebarIsShown = !sidebarIsShown;
+                }
+                else if(!sidebarIsShown && direction === 'right')
+                {
+                    sidebarIsShown = !sidebarIsShown;
+                }
+            }
+            else
+            {
+                sidebarIsShown = !sidebarIsShown;
+            }
         }
 
 
