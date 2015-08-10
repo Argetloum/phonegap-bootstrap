@@ -5,6 +5,7 @@
 $topbar-base-color: #4285f4;
 
 #topbar {
+    z-index: 30;
     position: fixed;
     width: 100%;
     background: $topbar-base-color;

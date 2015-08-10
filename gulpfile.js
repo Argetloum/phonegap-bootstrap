@@ -35,7 +35,8 @@ var paths = {
         'app/modules/**/*.html'
     ],
     scripts: [
-        'app/modules/**/*.js'
+        'app/modules/**/*.js',
+        'app/misc/**/*.js'
     ],
     libsScripts: [
         bower + '/underscore/underscore.js',
@@ -203,6 +204,9 @@ gulp.task('template-cache', function()
 {
     gulp.src('app/modules/**/*.html')
         .pipe(templateCache('templates_modules.js', {root: 'modules/', module: 'ModulesTemplates'}))
+        .pipe(gulp.dest(build + '/js'));
+    gulp.src('app/misc/**/*.html')
+        .pipe(templateCache('templates_misc.js', {root: 'misc/', module: 'MiscTemplates'}))
         .pipe(gulp.dest(build + '/js'));
 });
 

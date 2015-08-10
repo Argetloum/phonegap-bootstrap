@@ -12,6 +12,7 @@ var APPLICATION_NAME = 'mobile-app';
     angular.module('Factories', ['ngResource']);
     angular.module('Services', []);
     angular.module('ModulesTemplates', []);
+    angular.module('MiscTemplates', []);
     angular.module('Controllers', []);
 
     angular.module(APPLICATION_NAME,
@@ -27,6 +28,7 @@ var APPLICATION_NAME = 'mobile-app';
             'Filters',
             'Services',
             'ModulesTemplates',
+            'MiscTemplates',
             'ngTouch',
             'hj.uiSrefFastclick'
         ])
