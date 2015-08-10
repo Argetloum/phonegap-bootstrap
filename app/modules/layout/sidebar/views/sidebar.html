@@ -1,7 +1,20 @@
 <div class="sidebar-filter"
      ng-class="{ 'sidebar-filter--is-shown': AppService.isSidebarShown() }"
      ng-click="AppService.toggleSidebar()"></div>
+
 <div class="sidebar"
      ng-class="{ 'sidebar--is-shown': AppService.isSidebarShown() }">
-    ALLO
+    <div class="sidebar-content">
+        <div class="sidebar-content--header">
+            <div class="user-settings">
+                <img src="res/img/header/default-avatar.png" class="user-settings--avatar"/>
+                <span class="user-settings--name">
+                    John Demo
+                </span>
+                <span class="user-settings--email">
+                    john.demo@google.com
+                </span>
+            </div>
+        </div>
+    </div>
 </div>

@@ -23,18 +23,48 @@
 // Sidebar base styles
 .sidebar {
     z-index: 998;
-    width: 260px;
-    border-right: solid 1px #ddd;
+    width: 300px;
     background-color: #fff;
     @include transition-property(box-shadow, transform);
     @include transition-duration(0.4s);
     @include transition-timing-function($ease-out-quint);
     overflow: auto;
 
-    @include position(fixed, 0 null 0 -260px);
+    @include position(fixed, 0 null 0 -300px);
 }
 
 .sidebar--is-shown {
     box-shadow: 3px 0 6px rgba(0, 0, 0, 0.2);
-    @include transform(translateX(260px));
+    @include transform(translateX(300px));
+}
+
+.sidebar-content {
+    .sidebar-content--header {
+        background: url("../res/img/header/mobile-sidebar-header.jpg") repeat 0 0 #4fc1e9;
+        padding: 30px 20px 10px 20px;
+        color: white;
+
+        .user-settings {
+            .user-settings--avatar {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+            }
+            img {
+                display: block;
+                max-width: 100%;
+                font-style: italic;
+            }
+            .user-settings--name {
+                margin-top: 15px;
+                display: block;
+                font-weight: bold;
+            }
+            .user-settings--email {
+                display: block;
+                font-size: 14px;
+                color: #eee;
+            }
+        }
+    }
 }
