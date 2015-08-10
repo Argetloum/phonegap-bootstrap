@@ -1,3 +1,39 @@
 ///*------------------------------------*\
 //    #SIDEBAR
 //\*------------------------------------*/
+
+// Sidebar filter
+.sidebar-filter {
+    @include position(fixed, 0 0 0 0);
+    z-index: 998;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    @include transition-property(opacity);
+    @include transition-duration(0.4s);
+    @include transition-timing-function($ease-out-quint);
+}
+
+.sidebar-filter--is-shown {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+// Sidebar base styles
+.sidebar {
+    z-index: 998;
+    width: 260px;
+    border-right: solid 1px #ddd;
+    background-color: #fff;
+    @include transition-property(box-shadow, transform);
+    @include transition-duration(0.4s);
+    @include transition-timing-function($ease-out-quint);
+    overflow: auto;
+
+    @include position(fixed, 0 null 0 -260px);
+}
+
+.sidebar--is-shown {
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.2);
+    @include transform(translateX(260px));
+}

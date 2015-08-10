@@ -10,8 +10,7 @@
     "angular-translate": "~2.7.2",
     "ngstorage": "~0.3.0",
     "underscore": "~1.8.3",
-    "velocity": "latest",
-    "angular-snap": "~1.8.3"
+    "velocity": "latest"
   },
   "private": true,
   "resolutions": {

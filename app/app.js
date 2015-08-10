@@ -26,8 +26,7 @@ var APPLICATION_NAME = 'mobile-app';
             'Factories',
             'Filters',
             'Services',
-            'ModulesTemplates',
-            'snap'
+            'ModulesTemplates'
         ])
 
         .config(function($locationProvider, $stateProvider, $urlRouterProvider)
@@ -41,7 +40,7 @@ var APPLICATION_NAME = 'mobile-app';
                 // setup an abstract state for the tabs directive
                 .state('app', {
                     url: '/app',
-                    views:{
+                    views: {
                         'sidebar': {
                             templateUrl: 'modules/layout/sidebar/views/sidebar.html'
                         },
@@ -66,13 +65,11 @@ var APPLICATION_NAME = 'mobile-app';
             $urlRouterProvider.otherwise('/app/home');
 
         })
-        .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService', 'AppService', 'snapRemote',
-            function($rootScope, $timeout, Translation, GlobalizationService, AppService, snapRemote)
+        .run(['$rootScope', '$timeout', 'Translation', 'GlobalizationService', 'AppService',
+            function($rootScope, $timeout, Translation, GlobalizationService, AppService)
             {
                 $rootScope.Translation = Translation;
                 $rootScope.AppService = AppService;
-
-                snapRemote.globalOptions.disable = 'right';
 
                 document.addEventListener('deviceready', function()
                 {

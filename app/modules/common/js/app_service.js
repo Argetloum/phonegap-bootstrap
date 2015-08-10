@@ -16,12 +16,15 @@
         //
         var _service = this;
         var topBarTitle = Config.appName;
+        var sidebarIsShown = false;
 
         //
         // Public members
         //
         _service.getTopBarTitle = _getTopBarTitle;
         _service.setTopBarTitle = _setTopBarTitle;
+        _service.isSidebarShown = _isSidebarShown;
+        _service.toggleSidebar = _toggleSidebar;
 
 
         //
@@ -43,6 +46,23 @@
         function _getTopBarTitle()
         {
             return topBarTitle;
+        }
+
+        /**
+         * Check if the sidebar is opened
+         * @return Boolean
+         */
+        function _isSidebarShown()
+        {
+            return sidebarIsShown;
+        }
+
+        /**
+         * Change sidebar state
+         */
+        function _toggleSidebar()
+        {
+            sidebarIsShown = !sidebarIsShown;
         }
 
 

@@ -1,3 +1,7 @@
-<div id="sidebar" snap-drawer>
+<div class="sidebar-filter"
+     ng-class="{ 'sidebar-filter--is-shown': AppService.isSidebarShown() }"
+     ng-click="AppService.toggleSidebar()"></div>
+<div class="sidebar"
+     ng-class="{ 'sidebar--is-shown': AppService.isSidebarShown() }">
     ALLO
 </div>
