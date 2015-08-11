@@ -147,7 +147,7 @@
                             // initialize the touched point
                             config.prevY = e.touches[0].clientY;
                             // we use css3 transitions when available for smooth sliding
-                            element.css('transition', '');
+                            statusElem.css('transition', '');
                         }
                     });
 
@@ -180,7 +180,7 @@
                         {
                             config.isTouched = true;
                             config.prevY = e.clientY;
-                            element.css('transition', '');
+                            statusElem.css('transition', '');
                         }
                     });
 
