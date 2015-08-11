@@ -11,6 +11,7 @@
     "ngstorage": "~0.3.0",
     "underscore": "~1.8.3",
     "velocity": "latest",
+    "toolkit-client": "git@github.com:lumapps/toolkit-client.git#master",
     "angular-touch": "~1.4.3",
     "angular-ui-sref-fastclick": "~0.0.1"
   },

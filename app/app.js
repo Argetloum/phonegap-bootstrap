@@ -30,7 +30,8 @@ var APPLICATION_NAME = 'mobile-app';
             'ModulesTemplates',
             'MiscTemplates',
             'ngTouch',
-            'hj.uiSrefFastclick'
+            'hj.uiSrefFastclick',
+            'toolkit.base_service'
         ])
 
         .config(function($locationProvider, $stateProvider, $urlRouterProvider)
