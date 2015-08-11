@@ -30,6 +30,7 @@
         _service.createExcerpt = _createExcerpt;
         _service.bytesToSize = _bytesToSize;
         _service.displayServerError = _displayServerError;
+        _service.stripTags = _stripTags;
 
 
         //
@@ -258,6 +259,22 @@
             else
             {
                 LxNotificationService.error(Translation.translate('ERROR_GENERIC'));
+            }
+        }
+
+        /**
+         * Strip the tags of a html string
+         * @param {String} html - The input string
+         */
+        function _stripTags(html)
+        {
+            if (angular.isDefined(html) && angular.isDefined(html.replace))
+            {
+                return html.replace(/(<([^>]+)>)/ig, '');
+            }
+            else
+            {
+                return html;
             }
         }
 
