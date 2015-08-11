@@ -8,7 +8,9 @@
         .module('Services')
         .service('Utils', Utils);
 
-    function Utils()
+    Utils.$inject = ['LxNotificationService', 'Translation'];
+
+    function Utils(LxNotificationService, Translation)
     {
         //
         // Private members
@@ -27,6 +29,7 @@
         _service.log = _log;
         _service.createExcerpt = _createExcerpt;
         _service.bytesToSize = _bytesToSize;
+        _service.displayServerError = _displayServerError;
 
 
         //
@@ -224,11 +227,38 @@
          */
         function _bytesToSize(bytes)
         {
-            if (bytes == 0) return '0 Byte';
+            if (bytes === 0) return '0 Byte';
             var k = 1000;
             var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
             var i = Math.floor(Math.log(bytes) / Math.log(k));
             return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+        }
+
+        /**
+         * Display an notification on server error
+         * @param {Object} err - The request error
+         */
+        function _displayServerError(err)
+        {
+            if (err !== null && angular.isDefined(err) && err.data !== null && angular.isDefined(err.data) && err.data.error !== null && angular.isDefined(err.data.error))
+            {
+                if (err.data.error.code === 403)
+                {
+                    LxNotificationService.error(Translation.translate('ERROR_NOT_AUTHORIZED'));
+                }
+                else if (angular.isDefined(err.data.error.message) && err.data.error.message.match('^([A-Z_]+)$'))
+                {
+                    LxNotificationService.error(Translation.translate('SERVER_ERROR_' + err.data.error.message));
+                }
+                else
+                {
+                    LxNotificationService.error(Translation.translate('ERROR_GENERIC'));
+                }
+            }
+            else
+            {
+                LxNotificationService.error(Translation.translate('ERROR_GENERIC'));
+            }
         }
 
         //

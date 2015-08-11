@@ -7,9 +7,9 @@
         .module('Services')
         .service('Content', Content);
 
-    Content.$inject = ['AppBaseService'];
+    Content.$inject = ['AppBaseService', 'ContentFactory'];
 
-    function Content(AppBaseService)
+    function Content(AppBaseService, Api)
     {
         //
         // Private members
