@@ -6,12 +6,16 @@
     header {
         margin-top: 20px;
         text-align: center;
+        color: $blue-500;
+
+        &.refreshing{
+            color: $red-400;
+        }
     }
     .icon {
         background-color: #fff;
         border-radius: 50%;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-        color: $blue-500;
         -webkit-animation-name: rotate;
         -webkit-animation-duration: 1s;
         -webkit-animation-iteration-count: infinite;
