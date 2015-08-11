@@ -18,13 +18,14 @@
                 // BASIC VARIABLES
                 //
                 var config = {
-                    distanceToRefresh: 100,
+                    distanceToRefresh: 70,
                     scrollElem: element[0],
                     wrapperOffsetY: 0,
                     isTouched: false, // keep the state whether the fingers are touched
                     isMoved: false, // keep the state whether a PULL actually went out
                     prevY: null, // This has the original Top offset (relative to screen) position of the list
-                    cssY: 0
+                    cssY: 0,
+                    iconHeight: 0
                 };
                 scope.pullState = '';
                 var wrapper = angular.element('<div class="pull-to-refresh" />');
@@ -47,12 +48,18 @@
                     wrapper.append(element);
 
                     config.wrapperOffsetY = _getOffset(wrapper[0]).top;
-                    element.css('position', 'relative');
-                    element.css('top', '0px');
+                    statusElem.css({
+                        position: 'relative',
+                        top: '-' + config.distanceToRefresh + 'px'
+                    });
 
                     //T his has the original Top CSS position of the list
-                    config.cssY = element.css('top');
+                    config.cssY = statusElem.css('top');
                     config.cssY = parseInt(config.cssY.substring(0, config.cssY.length - 2));
+
+                    config.iconHeight = statusElem[0].offsetHeight;
+                    element.css('position', 'relative');
+                    element.css('top', '-' + config.iconHeight + 'px');
 
                     _bindItems();
                 }
@@ -75,7 +82,7 @@
                         {
                             scope.pullState = change;
                         }
-                        element.css('top', config.cssY + change + 'px');
+                        statusElem.css('top', config.cssY + change + 'px');
                         config.isMoved = true;
                         scope.$apply();
                     }
@@ -94,11 +101,10 @@
                         restoreCssY += config.distanceToRefresh;
                         scope.pullState = 'refreshing';
                         scope.$apply();
-                        statusElem.css('display', 'block');
                         _callRefreshFunction();
                     }
-                    element.css('transition', 'top 1s');
-                    element.css('top', restoreCssY + 'px');
+                    statusElem.css('transition', 'top 1s');
+                    statusElem.css('top', restoreCssY + 'px');
                     config.isTouched = false;
                     config.isMoved = false;
                 }
@@ -112,9 +118,8 @@
                     scope.$eval(attrs.pullToRefresh, {
                         cb: function()
                         {
-                            element.css('transition', 'top 1s');
-                            element.css('top', config.cssY + 'px');
-                            statusElem.css('display', 'none');
+                            statusElem.css('transition', 'top 1s');
+                            statusElem.css('top', config.cssY + 'px');
                             scope.pullState = '';
                         }
                     });
