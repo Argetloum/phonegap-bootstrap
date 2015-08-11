@@ -157,24 +157,24 @@
                  */
                 function _bindItems()
                 {
-                    //Add the start of the touching
+                    // Add the start of the touching
                     element.bind('touchstart', function(e)
                     {
                         // only enable pull to refresh at the top of the page
                         if (config.scrollElem.scrollTop === 0)
                         {
                             config.isTouched = true;
-                            //initialize the touched point
+                            // initialize the touched point
                             config.prevY = e.touches[0].clientY;
-                            //we use css3 transitions when available for smooth sliding
+                            // we use css3 transitions when available for smooth sliding
                             element.css('transition', '');
                         }
                     });
 
                     element.bind('touchend', function(e)
                     {
-                        //on touchup we cancel the touch event
-                        //now if the list has moved downwards, it should come up but in a transition
+                        // on touchup we cancel the touch event
+                        // now if the list has moved downwards, it should come up but in a transition
                         var change = e.changedTouches[0].clientY - config.prevY;
                         if (config.isTouched && change > 0)
                         {
@@ -192,7 +192,7 @@
                     });
 
 
-                    //binding mouse events to make this work in desktop browsers as well
+                    // binding mouse events to make this work in desktop browsers as well
                     element.bind('mousedown', function(e)
                     {
                         // only check left button click

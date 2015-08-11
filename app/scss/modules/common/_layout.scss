@@ -14,3 +14,10 @@ body {
     min-height: 100%;
     font-family: $base-font-family;
 }
+
+*, *:after, *:before {
+    outline: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
