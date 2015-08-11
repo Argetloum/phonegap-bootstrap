@@ -26,9 +26,12 @@
                     cssY: 0, // The base position of the pull to refresh icon
                     iconHeight: 0 // the current height of the pull icon
                 };
-                scope.pullState = '';
+                scope.pullState = ''; // states available: '', 'ready', 'refreshing'
                 var wrapper = angular.element('<div class="pull-to-refresh" />');
-                var statusElem = angular.element('<header><i class="icon icon--m icon--flat mdi mdi-refresh"></i></header>');
+                var statusElem = angular.element('' +
+                    '<header class="{{ pullState }}">' +
+                    '   <i class="icon icon--m icon--flat mdi mdi-refresh"></i>' +
+                    '</header>');
 
 
                 //
@@ -179,6 +182,7 @@
                         if (e.button === 0 && $document[0].body.scrollTop === 0)
                         {
                             config.isTouched = true;
+                            config.pullEnabled = true;
                             config.prevY = e.clientY;
                             statusElem.css('transition', '');
                         }
