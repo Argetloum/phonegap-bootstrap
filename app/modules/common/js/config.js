@@ -1,46 +1,19 @@
 (function()
 {
     /* global angular */
-    /* global LOCALE */
-    /* global navigator */
+    /* global location */
     'use strict'; // jshint ignore:line
 
     angular
-        .module('Services')
-        .service('Config', Config);
+        .module('Constants')
+        .constant('Config', {
+            // APPLICATION CONSTANTS
+            APPLICATION_NAME: 'Mobile App',
 
-    function Config()
-    {
-        //
-        // Private members
-        //
-        var _service = this;
-        var locale = navigator.language !== null ? navigator.language : navigator.browserLanguage;
+            // LOCATION CONSTANTS
+            APPLICATION_HOST: angular.isDefined(location) && angular.isDefined(location.host) && location.host.indexOf('-dot-') !== -1 ? 'https://' + location.host : 'http://localhost:8888',
 
-        //
-        // Public members
-        //
-        _service.getLocale = _getLocale;
-        _service.appName = 'Mobile App';
-
-
-        //
-        // PRIVATE METHODS
-        //
-        /**
-         * Get the client locale.
-         *
-         * @return  {String}  The locale.
-         */
-        function _getLocale()
-        {
-            return LOCALE ? LOCALE : locale;
-        }
-
-
-        //
-        // PUBLIC API
-        //
-        return _service;
-    }
+            // API CONSTANTS
+            API_BASE_URL: '/_ah/api/lumsites/v1'
+        });
 })();

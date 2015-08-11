@@ -15,7 +15,7 @@
         // Private members
         //
         var _service = this;
-        var topBarTitle = Config.appName;
+        var topBarTitle = Config.APPLICATION_NAME;
         var sidebarIsShown = false;
 
         //
