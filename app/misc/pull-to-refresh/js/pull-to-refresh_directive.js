@@ -58,8 +58,10 @@
                     config.cssY = parseInt(config.cssY.substring(0, config.cssY.length - 2));
 
                     config.iconHeight = statusElem[0].offsetHeight;
-                    element.css('position', 'relative');
-                    element.css('top', '-' + config.iconHeight + 'px');
+                    element.css({
+                        position: 'relative',
+                        top: '-' + config.iconHeight + 'px'
+                    });
 
                     _bindItems();
                 }
@@ -103,8 +105,10 @@
                         scope.$apply();
                         _callRefreshFunction();
                     }
-                    statusElem.css('transition', 'top 1s');
-                    statusElem.css('top', restoreCssY + 'px');
+                    statusElem.css({
+                        transition: 'top 1s',
+                        top: restoreCssY + 'px'
+                    });
                     config.isTouched = false;
                     config.isMoved = false;
                 }
@@ -118,8 +122,10 @@
                     scope.$eval(attrs.pullToRefresh, {
                         cb: function()
                         {
-                            statusElem.css('transition', 'top 1s');
-                            statusElem.css('top', config.cssY + 'px');
+                            statusElem.css({
+                                transition: 'top 1s',
+                                top: config.cssY + 'px'
+                            });
                             scope.pullState = '';
                         }
                     });
