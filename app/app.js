@@ -30,6 +30,7 @@ var APPLICATION_NAME = 'mobile-app';
             'ModulesTemplates',
             'MiscTemplates',
             'ngTouch',
+            'lumx',
             'hj.uiSrefFastclick',
             'toolkit.base_service'
         ])
