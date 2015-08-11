@@ -18,13 +18,13 @@
                 // BASIC VARIABLES
                 //
                 var config = {
-                    distanceToRefresh: 70,
+                    distanceToRefresh: 70, // the distance needed to execute a pull refresh
                     isTouched: false, // keep the state whether the fingers are touched
-                    isMoved: false, // keep the state whether a PULL actually went out
+                    isMoved: false, // keep the state whether a pull actually went out
+                    pullEnabled: false, // keep the state whether the pull action is enabled
                     prevY: null, // This has the original Top offset (relative to screen) position of the list
-                    cssY: 0,
-                    iconHeight: 0,
-                    pullEnabled: false
+                    cssY: 0, // The base position of the pull to refresh icon
+                    iconHeight: 0 // the current height of the pull icon
                 };
                 scope.pullState = '';
                 var wrapper = angular.element('<div class="pull-to-refresh" />');
@@ -51,7 +51,7 @@
                         top: '-' + config.distanceToRefresh + 'px'
                     });
 
-                    //T his has the original Top CSS position of the list
+                    // T his has the original Top CSS position of the list
                     config.cssY = statusElem.css('top');
                     config.cssY = parseInt(config.cssY.substring(0, config.cssY.length - 2));
 
