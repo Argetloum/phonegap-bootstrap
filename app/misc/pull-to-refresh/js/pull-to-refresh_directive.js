@@ -19,8 +19,6 @@
                 //
                 var config = {
                     distanceToRefresh: 70,
-                    scrollElem: element[0],
-                    wrapperOffsetY: 0,
                     isTouched: false, // keep the state whether the fingers are touched
                     isMoved: false, // keep the state whether a PULL actually went out
                     prevY: null, // This has the original Top offset (relative to screen) position of the list
@@ -48,7 +46,6 @@
                     wrapper.append(statusElem);
                     wrapper.append(element);
 
-                    config.wrapperOffsetY = _getOffset(wrapper[0]).top;
                     statusElem.css({
                         position: 'relative',
                         top: '-' + config.distanceToRefresh + 'px'
@@ -131,26 +128,6 @@
                             scope.pullState = '';
                         }
                     });
-                }
-
-                /**
-                 * Calculate the offset
-                 * @param elem
-                 * @returns {{left: number, top: number}}
-                 */
-                function _getOffset(elem)
-                {
-                    var x = 0;
-                    var y = 0;
-
-                    while (elem)
-                    {
-                        x += elem.offsetLeft;
-                        y += elem.offsetTop;
-                        elem = elem.offsetParent;
-                    }
-
-                    return {left: x, top: y};
                 }
 
                 /**
