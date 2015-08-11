@@ -1,0 +1,41 @@
+///*------------------------------------*\
+//    #NO-RESULTS
+//\*------------------------------------*/
+
+// No results
+.no-results {
+    padding: $base-spacing-unit * 3;
+    pointer-events: none;
+    @include user-select(none);
+}
+
+    // No results: wrapper
+    .no-results__wrapper {
+        @include display(flex);
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
+        padding: $base-spacing-unit * 3 0;
+        border-radius: $base-round;
+        border: 2px dashed $grey-300;
+        color: $black-3;
+    }
+    
+    // No results: icon / label
+    .no-results__icon,
+    .no-results__label {
+        display: block;
+    }
+
+    // No results: icon
+    .no-results__icon {
+        @include font-size(28px);
+    }
+
+    // No results: label
+    .no-results__label {
+        margin-top: $base-spacing-unit * 1.5;
+        @include font-size(18px);
+        font-weight: 500;
+        line-height: 28px;
+    }
