@@ -7,9 +7,9 @@
         .module('Directives')
         .directive('pullToRefresh', pullToRefresh);
 
-    pullToRefresh.$inject = ['$compile'];
+    pullToRefresh.$inject = ['$compile', '$document'];
 
-    function pullToRefresh($compile)
+    function pullToRefresh($compile, $document)
     {
         return {
             link: function(scope, element, attrs)
@@ -25,7 +25,8 @@
                     isMoved: false, // keep the state whether a PULL actually went out
                     prevY: null, // This has the original Top offset (relative to screen) position of the list
                     cssY: 0,
-                    iconHeight: 0
+                    iconHeight: 0,
+                    pullEnabled: false
                 };
                 scope.pullState = '';
                 var wrapper = angular.element('<div class="pull-to-refresh" />');
@@ -74,7 +75,7 @@
                  */
                 function _pullingDown(change)
                 {
-                    if (change > 0)
+                    if (change > 0 && config.pullEnabled)
                     {
                         if (change > config.distanceToRefresh)
                         {
@@ -111,6 +112,7 @@
                     });
                     config.isTouched = false;
                     config.isMoved = false;
+                    config.pullEnabled = false;
                 }
 
                 /**
@@ -161,8 +163,9 @@
                     element.bind('touchstart', function(e)
                     {
                         // only enable pull to refresh at the top of the page
-                        if (config.scrollElem.scrollTop === 0)
+                        if ($document[0].body.scrollTop === 0)
                         {
+                            config.pullEnabled = true;
                             config.isTouched = true;
                             // initialize the touched point
                             config.prevY = e.touches[0].clientY;
@@ -196,7 +199,7 @@
                     element.bind('mousedown', function(e)
                     {
                         // only check left button click
-                        if (e.button === 0 && config.scrollElem.scrollTop === 0)
+                        if (e.button === 0 && $document[0].body.scrollTop === 0)
                         {
                             config.isTouched = true;
                             config.prevY = e.clientY;
