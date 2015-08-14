@@ -50,10 +50,10 @@ var APPLICATION_NAME = 'mobile-app';
                         'sidebar': {
                             controller: 'SidebarController',
                             controllerAs: 'vm',
-                            templateUrl: 'modules/layout/sidebar/views/sidebar.html'
+                            templateUrl: 'modules/layout/views/sidebar.html'
                         },
                         'app': {
-                            templateUrl: 'modules/layout/app/views/app.html'
+                            templateUrl: 'modules/layout/views/app.html'
                         }
                     }
                 })
