@@ -15,7 +15,7 @@ var paths = {
     langs: {
         script: 'lang.py',
         csv: 'lang.csv',
-        js: 'app/modules/common/js/'
+        js: 'app/modules/common/'
         /*script: 'lang.py',
         main: {
             langFileId: '1p79BGz9dtJlX4qcfc2irrwSIN6RakdCzoYON2UFKm4U',
