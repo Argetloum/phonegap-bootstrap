@@ -49,9 +49,9 @@ var paths = {
         bower + '/angular-ui-sref-fastclick/angular-ui-sref-fastclick.js',
         vendors + '/angular-translate.min.js',
         vendors + '/translation_service.js',
+        vendors + '/base_service.js',
         bower + '/lumx/dist/lumx.js',
-        bower + '/velocity/velocity.js',
-        bower + '/toolkit-client/common_services/js/base_service.js'
+        bower + '/velocity/velocity.js'
     ],
     mainFiles: ['app/app.js', 'app/index.html'],
     files: 'app/res/**/*'
