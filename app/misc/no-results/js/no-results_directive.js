@@ -9,10 +9,12 @@
 
     function noResults()
     {
-        return {
+        var directive = {
             restrict: 'E',
             templateUrl: 'misc/no-results/views/no-results.html',
             replace: true
         };
+
+        return directive;
     }
 })();

@@ -9,7 +9,7 @@
 
     function loader()
     {
-        return {
+        var directive = {
             restrict: 'E',
             templateUrl: 'misc/loader/views/loader.html',
             replace: true,
@@ -24,5 +24,7 @@
                 }
             }
         };
+
+        return directive;
     }
 })();
