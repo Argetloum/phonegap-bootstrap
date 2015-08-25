@@ -11,7 +11,7 @@
     {
         var directive = {
             restrict: 'E',
-            templateUrl: 'misc/no-results/views/no-results.html',
+            templateUrl: 'misc/no-results/no-results.html',
             replace: true
         };
 

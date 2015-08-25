@@ -50,10 +50,10 @@ var APPLICATION_NAME = 'mobile-app';
                         'sidebar': {
                             controller: 'SidebarController',
                             controllerAs: 'vm',
-                            templateUrl: 'modules/layout/views/sidebar.html'
+                            templateUrl: 'modules/layout/sidebar.html'
                         },
                         'app': {
-                            templateUrl: 'modules/layout/views/app.html'
+                            templateUrl: 'modules/layout/app.html'
                         }
                     }
                 })
@@ -63,7 +63,7 @@ var APPLICATION_NAME = 'mobile-app';
                     url: '/home',
                     views: {
                         'content': {
-                            templateUrl: 'modules/home/views/home.html',
+                            templateUrl: 'modules/home/home.html',
                             controller: 'HomeController',
                             controllerAs: 'vm'
                         }
@@ -73,7 +73,7 @@ var APPLICATION_NAME = 'mobile-app';
                     url: '/content-list',
                     views: {
                         'content': {
-                            templateUrl: 'modules/content-list/views/content-list.html',
+                            templateUrl: 'modules/content-list/content-list.html',
                             controller: 'ContentListController',
                             controllerAs: 'vm'
                         }

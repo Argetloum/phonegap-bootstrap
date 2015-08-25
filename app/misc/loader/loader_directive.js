@@ -11,7 +11,7 @@
     {
         var directive = {
             restrict: 'E',
-            templateUrl: 'misc/loader/views/loader.html',
+            templateUrl: 'misc/loader/loader.html',
             replace: true,
             scope: {
                 type: '@?'
