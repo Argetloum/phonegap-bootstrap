@@ -1,6 +1,6 @@
-# Phonegap Mobile Bootstrap
+# LumSites Mobile
 
-> A quick prototype to give a try of Phonegap
+> LumSites, the mobile way
 
 ## Quick start
 
